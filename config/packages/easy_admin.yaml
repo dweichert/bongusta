@@ -8,6 +8,12 @@ easy_admin:
             label: Rezepte
             form: # applies to both new and edit
                 title: 'Rezept hinzufügen'
+                fields:
+                    - id
+                    - { property: 'title', label: 'Titel' }
+                    - { property: 'instructions', label: 'Zubereitung' }
+                    - { property: 'ingredients', label: 'Zutaten' }
+                    - { property: 'images', label: 'Bilder' }
             new:
             edit:
                 title: 'Rezept ändern'
