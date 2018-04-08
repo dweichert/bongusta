@@ -6,6 +6,11 @@ easy_admin:
         Recipe:
             class: App\Entity\Recipe
             label: Rezepte
+            form: # applies to both new and edit
+                title: 'Rezept hinzufügen'
+            new:
+            edit:
+                title: 'Rezept ändern'
         Ingredient:
             class: App\Entity\Ingredient
             label: Zutaten
