@@ -231,6 +231,8 @@ php:
             - cli
             - intl
             - xml
+            - xsl
+            - zip
         pear: {  }
         pecl: {  }
     ini:
