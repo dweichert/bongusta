@@ -6,6 +6,13 @@ easy_admin:
         Recipe:
             class: App\Entity\Recipe
             label: Rezepte
+            list:
+                title: Rezepte
+                fields:
+                    - id
+                    - { property: 'title', label: 'Titel' }
+                    - { property: 'ingredients', label: 'Zutaten' }
+                    - { property: 'images', label: 'Bilder' }
             form: # applies to both new and edit
                 title: 'Rezept hinzufügen'
                 fields:
