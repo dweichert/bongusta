@@ -21,7 +21,7 @@ vagrantfile:
                 machines:
                     machine1:
                         id: bongusta
-                        hostname: bongusta
+                        hostname: bongusta.test
                         network:
                             private_network: 192.168.56.101
                             forwarded_port:
@@ -132,13 +132,13 @@ nginx:
             server_name: bongusta.test
             server_aliases:
                 - www.bongusta.test
-            www_root: /var/www/bongusta
+            www_root: /var/www/public
             listen_port: '80'
             client_max_body_size: 1m
             ssl: '0'
             locations:
                 php_html:
-                    www_root: /var/www/bongusta
+                    www_root: /var/www/public
                     location: /
                     autoindex: 'off'
                     internal: 'false'
@@ -153,7 +153,7 @@ nginx:
                     fastcgi_index: ''
                     fastcgi_split_path: ''
                 php_php:
-                    www_root: /var/www/awesome
+                    www_root: /var/www/public
                     location: '~ \.php$'
                     autoindex: 'off'
                     internal: 'false'
@@ -185,10 +185,10 @@ apache:
         - rewrite
     vhosts:
         vhost1:
-            servername: awesome.test
+            servername: bongusta.test
             serveraliases:
-                - www.awesome.test
-            docroot: /var/www/awesome
+                - www.bongusta.test
+            docroot: /var/www/public
             port: '80'
             setenvif:
                 - 'Authorization "(.*)" HTTP_AUTHORIZATION=$1'
@@ -202,7 +202,7 @@ apache:
             directories:
                 php_html:
                     provider: directory
-                    path: /var/www/awesome
+                    path: /var/www/public
                     directoryindex: 'index.php index.html'
                     options:
                         - Indexes
