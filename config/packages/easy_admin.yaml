@@ -11,7 +11,7 @@ easy_admin:
                 fields:
                     - id
                     - { property: 'title', label: 'Titel' }
-                    - { property: 'instructions', label: 'Zubereitung' }
+                    - { property: 'instructions', label: 'Zubereitung', type: 'Hillrange\CKEditor\Form\CKEditorType' }
                     - { property: 'ingredients', label: 'Zutaten' }
                     - { property: 'images', label: 'Bilder' }
             new:
