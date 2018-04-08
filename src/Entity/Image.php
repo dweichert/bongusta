@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\IngredientRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ImageRepository")
  */
-class Ingredient
+class Image
 {
     /**
      * @ORM\Id()
@@ -21,20 +21,15 @@ class Ingredient
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $title;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $description;
+    private $filename;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $link;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Recipe", mappedBy="ingredients")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Recipe", mappedBy="images")
      */
     private $recipes;
 
@@ -48,38 +43,26 @@ class Ingredient
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getTitle(): ?string
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName(string $name): self
+    public function setTitle(string $title): self
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getFilename(): ?string
     {
-        return $this->description;
+        return $this->filename;
     }
 
-    public function setDescription(?string $description): self
+    public function setFilename(string $filename): self
     {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    public function getLink(): ?string
-    {
-        return $this->link;
-    }
-
-    public function setLink(?string $link): self
-    {
-        $this->link = $link;
+        $this->filename = $filename;
 
         return $this;
     }
@@ -96,7 +79,7 @@ class Ingredient
     {
         if (!$this->recipes->contains($recipe)) {
             $this->recipes[] = $recipe;
-            $recipe->addIngredient($this);
+            $recipe->addImage($this);
         }
 
         return $this;
@@ -106,7 +89,7 @@ class Ingredient
     {
         if ($this->recipes->contains($recipe)) {
             $this->recipes->removeElement($recipe);
-            $recipe->removeIngredient($this);
+            $recipe->removeImage($this);
         }
 
         return $this;
