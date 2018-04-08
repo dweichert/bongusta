@@ -3,9 +3,12 @@ easy_admin:
     design:
         brand_color: '#33cc33'
     entities:
-        Image:
-            class: App\Entity\Image
-        Ingredient:
-            class: App\Entity\Ingredient
         Recipe:
             class: App\Entity\Recipe
+            label: Rezepte
+        Ingredient:
+            class: App\Entity\Ingredient
+            label: Zutaten
+        Image:
+            class: App\Entity\Image
+            label: Bilder
