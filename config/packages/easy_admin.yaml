@@ -2,6 +2,10 @@ easy_admin:
     site_name: "Administration"
     design:
         brand_color: '#009900'
+    list:
+        actions:
+            - { name: 'edit', icon: 'pencil', label: '', title: 'ändern' }
+            - { name: 'delete', icon: 'trash', label: '', title: 'löschen' }
     entities:
         Recipe:
             class: App\Entity\Recipe
