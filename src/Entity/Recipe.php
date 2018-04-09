@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
+use App\DBAL\Types\MealType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RecipeRepository")
@@ -37,6 +39,12 @@ class Recipe
      * @ORM\ManyToMany(targetEntity="App\Entity\Image", inversedBy="recipes")
      */
     private $images;
+
+    /**
+     * @ORM\Column(name="meal", type="MealType", nullable=false)
+     * @DoctrineAssert\Enum(entity="App\DBAL\Types\MealType")
+     */
+    private $meal;
 
     public function __construct()
     {
@@ -128,5 +136,17 @@ class Recipe
     public function __toString(): string
     {
         return (string) $this->getTitle();
+    }
+
+    public function getMeal(): ?string
+    {
+        return $this->meal;
+    }
+
+    public function setMeal(string $meal): self
+    {
+        $this->meal = $meal;
+
+        return $this;
     }
 }
