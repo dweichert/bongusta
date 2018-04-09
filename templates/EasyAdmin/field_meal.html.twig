@@ -1,0 +1,13 @@
+{% if is_accessible %}
+    {% for key, arrayvalue in field_options.type_options.choices %}
+        {% if value == arrayvalue %}
+            {{ key }}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    {% for key, arrayvalue in field_options.type_options.choices %}
+        {% if value == arrayvalue %}
+            {{ key|easyadmin_truncate }}
+        {% endif %}
+    {% endfor %}
+{% endif %}

@@ -16,10 +16,10 @@ final class MealType extends AbstractEnumType
     const STARTER = 'starter';
 
     protected static $choices = [
-        self::BREAKFAST => 'Fr&uuml;hst&uuml;ck',
+        self::BREAKFAST => 'Frühstück',
         self::DESSERT => 'Dessert',
         self::MAIN_COURSE => 'Hauptgericht',
-        self::PASTRY => 'Kuchen &amp; Geb&auml;ck',
+        self::PASTRY => 'Kuchen & Gebäck',
         self::SALAD => 'Salat',
         self::SNACK => 'Snack',
         self::STARTER => 'Vorspeise'

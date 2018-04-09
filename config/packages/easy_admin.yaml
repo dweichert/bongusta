@@ -13,6 +13,7 @@ easy_admin:
                     - { property: 'title', label: 'Titel' }
                     - { property: 'ingredients', label: 'Zutaten' }
                     - { property: 'images', label: 'Bilder' }
+                    - { property: 'meal', label: 'Gang', type: 'string', template: 'EasyAdmin/field_meal.html.twig'}
             form: # applies to both new and edit
                 title: 'Rezept hinzufügen'
                 fields:
@@ -20,6 +21,7 @@ easy_admin:
                     - { property: 'instructions', label: 'Zubereitung', type: 'Hillrange\CKEditor\Form\CKEditorType' }
                     - { property: 'ingredients', label: 'Zutaten' }
                     - { property: 'images', label: 'Bilder' }
+                    - { property: 'meal', label: 'Gang'}
             new:
             edit:
                 title: 'Rezept ändern'
