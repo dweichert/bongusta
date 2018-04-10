@@ -32,6 +32,13 @@ easy_admin:
         Ingredient:
             class: App\Entity\Ingredient
             label: Zutaten
+            list:
+                title: Zutaten
+                fields:
+                    - id
+                    - { property: 'name', label: 'Name' }
+                    - { property: 'link', label: 'Link', type: 'url' }
+                    - { property: 'recipes', label: 'Rezepte' }
         Image:
             class: App\Entity\Image
             label: Bilder
