@@ -10,10 +10,12 @@ easy_admin:
         Recipe:
             class: App\Entity\Recipe
             label: Rezepte
+            search:
+                sort: ['title', 'ASC']
             list:
+                sort: ['title', 'ASC']
                 title: Rezepte
                 fields:
-                    - id
                     - { property: 'title', label: 'Titel' }
                     - { property: 'ingredients', label: 'Zutaten' }
                     - { property: 'images', label: 'Bilder' }
@@ -32,10 +34,12 @@ easy_admin:
         Ingredient:
             class: App\Entity\Ingredient
             label: Zutaten
+            search:
+                sort: ['name', 'ASC']
             list:
+                sort: ['name', 'ASC']
                 title: Zutaten
                 fields:
-                    - id
                     - { property: 'name', label: 'Name' }
                     - { property: 'link', label: 'Link', type: 'url' }
                     - { property: 'recipes', label: 'Rezepte' }
