@@ -47,6 +47,15 @@ easy_admin:
                     - { property: 'name', label: 'Name' }
                     - { property: 'link', label: 'Link', type: 'url' }
                     - { property: 'recipes', label: 'Rezepte' }
+                    - { property: 'updated', label: 'zuletzt geändert', type: 'datetime' }
+                    - { property: 'created', label: 'erstellt', type: 'datetime' }
+            form:
+                title: 'Zutat hinzufügen'
+                fields:
+                    - { property: 'name', label: 'Name' }
+                    - { property: 'description', label: 'Beschreibung', type: 'Hillrange\CKEditor\Form\CKEditorType' }
+                    - { property: 'link', label: 'Link' }
+                    - { property: 'recipes', label: 'Rezepte' }
         Image:
             class: App\Entity\Image
             label: Bilder
