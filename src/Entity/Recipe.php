@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use App\DBAL\Types\MealType;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RecipeRepository")
@@ -39,6 +41,18 @@ class Recipe
      * @ORM\ManyToMany(targetEntity="App\Entity\Image", inversedBy="recipes")
      */
     private $images;
+
+    /**
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
+
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
 
     /**
      * @ORM\Column(name="meal", type="MealType", nullable=false)
@@ -146,6 +160,30 @@ class Recipe
     public function setMeal(string $meal): self
     {
         $this->meal = $meal;
+
+        return $this;
+    }
+
+    public function getCreated(): DateTime
+    {
+        return $this->created;
+    }
+
+    public function setCreated(DateTime $created): self
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    public function getUpdated(): DateTime
+    {
+        return $this->updated;
+    }
+
+    public function setUpdated(DateTime $updated): self
+    {
+        $this->updated = $updated;
 
         return $this;
     }

@@ -2,6 +2,8 @@ easy_admin:
     site_name: "Administration"
     design:
         brand_color: '#009900'
+    formats:
+        datetime: 'd.m.Y H:i e'
     list:
         actions:
             - { name: 'edit', icon: 'pencil', label: '', title: 'ändern' }
@@ -20,6 +22,8 @@ easy_admin:
                     - { property: 'ingredients', label: 'Zutaten' }
                     - { property: 'images', label: 'Bilder' }
                     - { property: 'meal', label: 'Gang', type: 'string', template: 'EasyAdmin/field_meal.html.twig'}
+                    - { property: 'updated', label: 'zuletzt geändert', type: 'datetime' }
+                    - { property: 'created', label: 'erstellt', type: 'datetime' }
             form: # applies to both new and edit
                 title: 'Rezept hinzufügen'
                 fields:
